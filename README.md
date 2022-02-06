@@ -50,3 +50,13 @@ List of VMs which I think are the best fit
 | CPX21  | 0.013  |  8.21   |  3   |  4     |  80     |
 | CPX31  | 0.024  | 14.76   |  4   |  8     | 160     |
 | CPX41  | 0.045  | 27.25   |  8   | 16     | 240     |
+
+
+## Kubernetes deployment
+
+I can remember a few month back that it was quite tiresome to setup a kubernetes
+cluster fully automated with kubeadm and that some things didn't work out as I 
+wanted. One example was, that I used terraform and a few bash scripts to deploy 
+a complete cluster, but sometimes the initialization of the cluster network did 
+break and I had to do manually.
+
