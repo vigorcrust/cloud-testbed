@@ -60,3 +60,8 @@ wanted. One example was, that I used terraform and a few bash scripts to deploy
 a complete cluster, but sometimes the initialization of the cluster network did 
 break and I had to do manually.
 
+After some research I ruled out some providers and decided to use 
+**Kubermatic KubeOne**, because it supports Hetzner Cloud, is Open Source and fits 
+most my needs.
+
+
