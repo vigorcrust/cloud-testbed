@@ -8,12 +8,16 @@ This project is used to try out and experiment with different cloud tech stacks,
 - as fast as possible to create & destroy
 - fairly cheap
 - easy to modify & extend
+- as little requirements needed as possible
 
 
-## Base tech stack
+## Tech stack
 
-- kubernetes
-- github
+- GitHub
+- Terraform
+- Hetzner Cloud
+- Kubermatic KubeOne
+- GoDaddy-DNS
 
 
 ## Cloud provider
@@ -63,5 +67,8 @@ break and I had to do manually.
 After some research I ruled out some providers and decided to use 
 **Kubermatic KubeOne**, because it supports Hetzner Cloud, is Open Source and fits 
 most my needs.
+
+
+## Infrastructure setup
 
 
