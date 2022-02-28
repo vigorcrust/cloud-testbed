@@ -72,3 +72,4 @@ most my needs.
 ## Infrastructure setup
 
 
+![](docs/media/cloud_testbed_architecture.drawio.png)
