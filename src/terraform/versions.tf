@@ -21,6 +21,7 @@ provider "hcloud" {
   poll_interval = "500ms"                        # optional
 }
 
+# Configure GoDaddy DNS Provider
 provider "godaddy" {
   key    = "" # required - can be set by env GODADDY_API_KEY
   secret = "" # required - can be set by env GODADDY_API_SECRET
