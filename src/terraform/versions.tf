@@ -11,5 +11,7 @@ terraform {
 
 # Configure the Hetzner Cloud Provider
 provider "hcloud" {
-  token = var.hcloud_token
+  token         = var.hcloud_token               # required - can be set by env HCLOUD_TOKEN
+  endpoint      = "https://api.hetzner.cloud/v1" # optional
+  poll_interval = "500ms"                        # optional
 }
