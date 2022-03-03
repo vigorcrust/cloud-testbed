@@ -73,3 +73,15 @@ most my needs.
 
 
 ![](docs/media/cloud_testbed_architecture.drawio.png)
+
+
+## Securing secrets
+
+I will use age & sops for encrypting secrets.
+
+Ensure that the private key is not stored in the repo
+`echo "key.txt" >> .gitignore`
+
+Generate the key
+`./bin/age-keygen -o key.txt`
+
