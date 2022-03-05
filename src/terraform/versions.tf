@@ -11,6 +11,20 @@ terraform {
       source = "kolikons/godaddy"
       version = "~> 1.8.1"
     }
+
+    b2 = {
+      source = "Backblaze/b2"
+    }
+  }
+
+  backend "s3" {
+    key      = "terraform.tfstate"
+    bucket   = "terraform-my-cloud-k8s"
+    region   = "us-west-1"
+    endpoint = "s3.us-west-000.backblazeb2.com"
+    skip_region_validation      = true
+    skip_credentials_validation = true
+    skip_metadata_api_check     = true    
   }
 }
 
@@ -25,4 +39,8 @@ provider "hcloud" {
 provider "godaddy" {
   key    = "" # required - can be set by env GODADDY_API_KEY
   secret = "" # required - can be set by env GODADDY_API_SECRET
+}
+
+# Configure Backblaze S3 provider
+provider "b2" {
 }

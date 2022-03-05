@@ -77,11 +77,8 @@ most my needs.
 
 ## Securing secrets
 
-I will use age & sops for encrypting secrets.
+I was considering gitcrypt, sops + age to encrypt the secrets,
+but for now I use a simple .env file (inside .gitignore) to
+set the variables.
 
-Ensure that the private key is not stored in the repo
-`echo "key.txt" >> .gitignore`
-
-Generate the key
-`./bin/age-keygen -o key.txt`
 

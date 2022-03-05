@@ -1,1 +1,7 @@
-key.txt
+
+# all environment files
+**/.env
+
+# terraform directories
+**/.terraform/
+
