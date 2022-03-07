@@ -14,19 +14,17 @@ terraform {
 
     b2 = {
       source = "Backblaze/b2"
+      version = "~> 0.7.1"
     }
   }
 
   backend "s3" {
     key                         = "terraform.tfstate"
-    bucket                      = "terraform-my-cloud-k8s"
     region                      = "us-west-1"
     endpoint                    = "s3.us-west-000.backblazeb2.com"
     skip_region_validation      = true
     skip_credentials_validation = true
     skip_metadata_api_check     = true
-    access_key                  = var.b2_keyID
-    secret_key                  = var.b2_applicationKey
   }
 }
 

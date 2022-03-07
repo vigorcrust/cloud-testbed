@@ -6,4 +6,4 @@
 **/.terraform/
 
 # terraform variables
-**/terraform.tfvars
+**/backend.conf
