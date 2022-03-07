@@ -1,0 +1,6 @@
+# ID of the backblaze key
+access_key = ""
+# Secret app key accociated to the backblaze key
+secret_key = ""
+# The s3 bucket where tfstate is stored 
+bucket = ""
