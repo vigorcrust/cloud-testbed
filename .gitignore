@@ -5,3 +5,5 @@
 # terraform directories
 **/.terraform/
 
+# terraform variables
+**/terraform.tfvars
