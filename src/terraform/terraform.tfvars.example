@@ -6,3 +6,6 @@ godaddy_key = ""
 
 # GoDaddy api key secret
 godaddy_secret = "" 
+
+# Top level domain name
+tld = "example.com"

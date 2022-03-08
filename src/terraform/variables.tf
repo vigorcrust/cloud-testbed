@@ -15,3 +15,14 @@ variable "godaddy_secret" {
   type = string
   sensitive = true
 }
+
+variable "tld" {
+  description = "Top level domain for the cluster"
+  type = string
+}
+
+variable "cluster_name" {
+  description = "Name of the K8s cluster"
+  type = string
+  default = "k8s"
+}
