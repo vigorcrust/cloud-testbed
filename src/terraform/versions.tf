@@ -11,11 +11,6 @@ terraform {
       source = "kolikons/godaddy"
       version = "~> 1.8.1"
     }
-
-    b2 = {
-      source = "Backblaze/b2"
-      version = "~> 0.7.1"
-    }
   }
 }
 
@@ -28,10 +23,6 @@ provider "hcloud" {
 
 # Configure GoDaddy DNS Provider
 provider "godaddy" {
-  key    = "" # required - can be set by env GODADDY_API_KEY
-  secret = "" # required - can be set by env GODADDY_API_SECRET
-}
-
-# Configure Backblaze S3 provider
-provider "b2" {
+  key    = var.godaddy_key # required - can be set by env GODADDY_API_KEY
+  secret = var.godaddy_key # required - can be set by env GODADDY_API_SECRET
 }

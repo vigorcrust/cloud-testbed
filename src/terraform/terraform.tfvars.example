@@ -1,0 +1,8 @@
+# Hetzner Cloud API token
+hcloud_token = ""
+
+# GoDaddy api key
+godaddy_key = ""
+
+# GoDaddy api key secret
+godaddy_secret = "" 
