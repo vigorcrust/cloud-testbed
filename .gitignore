@@ -10,3 +10,7 @@
 
 # terraform tfvars
 **/terraform.tfvars
+
+# ignore data folder
+data/*
+!data/.gitkeep
