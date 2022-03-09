@@ -20,11 +20,18 @@ resource "local_file" "ssh_private_key_file" {
   sensitive_content = tls_private_key.ssh.private_key_pem
   filename          = var.ssh_private_key_file
   file_permission   = "0600"
-}
+}########################
 
-# Register public SSH key in hetzner
+
+
+# Register public SSH key in Hetzner Cloud
 resource "hcloud_ssh_key" "kubeone" {
   name       = "kubeone-${var.cluster_name}"
   public_key = tls_private_key.ssh.public_key_openssh
 }
-########################
+
+# Create a network
+
+# Create a subnet for servers in network
+
+
