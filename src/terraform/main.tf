@@ -31,7 +31,15 @@ resource "hcloud_ssh_key" "kubeone" {
 }
 
 # Create a network
+resource "hcloud_network" "net" {
+  name     = var.cluster_name
+  ip_range = var.ip_range
+}
 
-# Create a subnet for servers in network
-
-
+# Create a subnet for servers in the network
+resource "hcloud_network_subnet" "kubeone" {
+  network_id   = hcloud_network.net.id
+  type         = "cloud"               # type "server" is deprecated
+  network_zone = var.network_zone
+  ip_range     = var.ip_range
+}

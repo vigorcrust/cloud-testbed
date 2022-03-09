@@ -1,5 +1,5 @@
 
-# Access to providers
+### Access to providers
 variable "hcloud_token" {
   description = "Hetzner Cloud access token"
   type = string
@@ -18,7 +18,7 @@ variable "godaddy_secret" {
   sensitive = true
 }
 
-# Global settings
+### Global settings
 variable "tld" {
   description = "Top level domain for the cluster"
   type = string
@@ -35,7 +35,7 @@ variable "cluster_name" {
   }
 }
 
-# SSH key settings
+### SSH key settings
 variable "ssh_public_key_file" {
   description = "SSH public key file"
   type        = string
@@ -68,4 +68,27 @@ variable "ssh_agent_socket" {
   description = "SSH Agent socket, default to grab from $SSH_AUTH_SOCK"
   type        = string
   default     = "env:SSH_AUTH_SOCK"
+}
+
+### Network variables
+variable "ip_range" {
+  description = "IP range to use for private network."
+  type        = string
+  default     = "192.168.0.0/16"
+
+  validation {
+    condition     = can(regex("^([0-9]{1,3}\\.){3}[0-9]{1,3}(\\/([0-9]|[1-2][0-9]|3[0-2]))$", var.ip_range))
+    error_message = "Only a valid CIDR IP address range is allowed."
+  }
+}
+
+variable "network_zone" {
+  description = "Grouping of inter-connected locations"
+  type        = string
+  default     = "eu-central"
+
+  validation {
+    condition = var.network_zone == "eu-central" || var.network_zone == "us-east"
+    error_message = "Only eu-central or us-east are available."
+  }
 }
