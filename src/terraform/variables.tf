@@ -2,36 +2,47 @@
 ### Access to providers
 variable "hcloud_token" {
   description = "Hetzner Cloud access token"
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 variable "godaddy_key" {
   description = "GoDaddy api key"
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 variable "godaddy_secret" {
   description = "GoDaddy api key secret"
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 ### Global settings
 variable "tld" {
   description = "Top level domain for the cluster"
-  type = string
+  type        = string
 }
 
 variable "cluster_name" {
   description = "Name of the K8s cluster"
-  type = string
-  default = "k8s"
+  type        = string
+  default     = "k8s"
 
   validation {
     condition     = can(regex("^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$", var.cluster_name))
     error_message = "Value of cluster_name should be lowercase and can only contain alphanumeric characters and hyphens(-)."
+  }
+}
+
+variable "datacenter" {
+  description = "value"
+  type        = string
+  default     = "fsn1"
+
+  validation {
+    condition     = var.datacenter == "nbg1" || var.datacenter == "fsn1" || var.datacenter == "hel1"
+    error_message = "Only nbg1, fsn1 or hel1 are available."
   }
 }
 
@@ -88,7 +99,26 @@ variable "network_zone" {
   default     = "eu-central"
 
   validation {
-    condition = var.network_zone == "eu-central" || var.network_zone == "us-east"
+    condition     = var.network_zone == "eu-central" || var.network_zone == "us-east"
     error_message = "Only eu-central or us-east are available."
   }
+}
+
+# number and type of VMs
+variable "control_plane_replicas" {
+  description = "Number of control plane servers"
+  type        = number
+  default     = 3
+}
+
+variable "control_plane_type" {
+  description = "Server type"
+  type        = string
+  default     = "cx21"
+}
+
+variable "image" {
+  description = "OS image"
+  type        = string
+  default     = "ubuntu-20.04"
 }
